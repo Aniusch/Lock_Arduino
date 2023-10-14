@@ -18,7 +18,7 @@ void setup() {
   pinMode(relay, OUTPUT);
   pinMode(esp, INPUT);
   pinMode(closedButton, INPUT);
-  Serial.begin(9600);
+  Serial.begin(115200);
   prodZero = 5;
   isOpen = 0;  // Inicialização de isOpen
 }
@@ -52,10 +52,10 @@ void loop() {
       cont++;
     }
     if (distance > (prodZero + 15)) {
-      cont++;  // Corrigido para cont em vez de Cont
+      cont++;  
     }
-    Serial.print("Contador: ");  // Mensagem de depuração
-    Serial.println(cont);  // Alterado para Serial.println para visualização de texto
+    Serial.print("Contador: "); 
+    Serial.println(cont);  
   }
 
   delay(10);
