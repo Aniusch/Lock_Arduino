@@ -9,7 +9,7 @@ int isOpen;
 const int closedButton = 12;
 
 float duration, distance;
-int val;  // Adicionada a declaração da variável val
+int val;  
 
 void setup() {
   pinMode(trigPin, OUTPUT);
@@ -20,7 +20,7 @@ void setup() {
   pinMode(closedButton, INPUT);
   Serial.begin(115200);
   prodZero = 5;
-  isOpen = 0;  // Inicialização de isOpen
+  isOpen = 0; 
 }
 
 void loop() {
@@ -37,13 +37,15 @@ void loop() {
   if (val == HIGH) {
     isOpen = 1;
     digitalWrite(relay, HIGH);
+    //delay(100) 
   } else {
     digitalWrite(relay, LOW);
+    isOpen = 0;
   }
 
   if (digitalRead(closedButton) == HIGH) {
     isOpen = 0;
-  } else {
+  } else if(isOpen == 1){
     int cont = 0;
     if (distance > (prodZero + 5)) {
       cont++;
